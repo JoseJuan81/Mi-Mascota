@@ -1,4 +1,4 @@
-# real-world-nuxt
+# Mi Macota
 
 > My groovy Nuxt.js project
 
