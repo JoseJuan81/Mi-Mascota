@@ -61,6 +61,12 @@ export default {
 }
 
 .main-content-container {
-    margin-left: 20px;
+    border-left: 1px solid $primary;
+    height: 100vh;
+    padding: 0 20px;
+
+    @media (max-width: 600px) {
+        border-left: 0px solid $primary;
+    }
 }
 </style>

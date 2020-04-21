@@ -1,13 +1,52 @@
 <template>
     <div>
-        <div v-if="!!d3">
+        <h2 class="graphics-title">Resumen de peso</h2>
+        <div v-if="!!d3" class="mb-8 flex justify-center">
             <weight-graphics :d3="d3" :weight-data="weightData"/>
         </div>
-        <h3>Último peso: {{lastWeight}} Kg</h3>
+        <div class="grid-info">
+            <info-card title="Mi Nombre" content="Catire">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/id-card-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Último peso" :content="`${lastWeight} Kg`">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/weight-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Soy" content="Macho">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/venus-mars-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Tengo" content="5 años">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/birthday-cake-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Especie" content="Canino">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/paw-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Raza" content="Catumpi">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/dog-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+            <info-card title="Color" content="Catire">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/palette-solid.svg" alt="ícono">
+                </template>
+            </info-card>
+        </div>
+        <h3 class="summary-data-title">Mi condición: <span class="summary-data-content">Castrado / Esterilizado </span></h3>
     </div>
 </template>
 <script>
 import weightGraphics from '~/components/resumen/WeightGraphics';
+import InfoCard from '~/components/resumen/InfoCard';
 
 function mounted() {
     this.d3 = window.d3;
@@ -54,6 +93,7 @@ function data() {
 export default {
     name: 'resumen',
     components: {
+        InfoCard,
         weightGraphics,
     },
     computed: {
@@ -82,3 +122,26 @@ export default {
     mounted,
 }
 </script>
+<style lang="scss" scoped>
+.graphics-title {
+    color: $textPrimary;
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+.grid-info {
+    display: grid;
+    grid-column-gap: 0.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+.summary-data-title,
+.summary-data-content {
+    color: $textPrimary;
+    font-size: 30px;
+}
+
+.summary-data-content {
+    color: $textSecondary;
+    font-size: 40px;
+}
+</style>
