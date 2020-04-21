@@ -1,12 +1,14 @@
 <template>
-    <svg ref="wg"></svg>
+    <div class="w-full">
+        <svg ref="wg"></svg>
+    </div>
 </template>
 
 <script>
 const width = 768;
 const height = 200;
 const barHeight = 40;
-const margin = { top: 30, right: 20, bottom: 20, left: 20 };
+const margin = { top: 10, right: 20, bottom: 20, left: 20 };
 
 function mounted() {
     this.setBarHeight();
@@ -51,7 +53,8 @@ function setBars() {
 }
 
 function setSvgObject() {
-    this.svg = this.d3.select('svg').attr('width', width).attr('height', height);
+    this.svg = this.d3.select('svg')
+        .attr('viewBox', `0 0 ${width} ${height}`);
 }
 
 function setScales() {

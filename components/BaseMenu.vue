@@ -8,6 +8,7 @@
         <div class="pet-img">
             <img src="~/static/icons/pets/dog.svg" alt="pet-img">
             <small>Catire</small>
+            <small>ID: 1a2b3c</small>
         </div>
         <ul class="routes">
             <nuxt-link
@@ -32,7 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .routes-container {
-    border-right: 1px solid #74f6a7;
+    background-color: white;
     height: 100vh;
 
     .return {
@@ -44,7 +45,7 @@ export default {
 
     .pet-img {
         align-items: center;
-        border-bottom: 1px solid #74f6a7;
+        border-bottom: 1px solid $primary;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -66,8 +67,8 @@ export default {
 
         li {
             align-items: center;
-            border-bottom: 1px solid #74f6a7;
-            color:#74f6a7;
+            border-bottom: 1px solid $primary;
+            color:$primary;
             cursor: pointer;
             display: flex;
             font-weight: bold;
@@ -78,14 +79,14 @@ export default {
             white-space: nowrap;
 
             &.nuxt-link-exact-active {
-                background-color: #74f6a7;
+                background-color: $primary;
                 color: white;
             }
 
             &:hover {
-                background-color: #74f6a7;
+                background-color: $primary;
                 color: white;
-                background-color: #74f6a7;
+                background-color: $primary;
                 color: white;
             }
         }
