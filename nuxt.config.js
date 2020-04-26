@@ -50,8 +50,21 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-i18n'
   ],
+
+  // translations
+  i18n: {
+    defaultLocale: 'en',
+    langDir: 'lang/',
+    lazy: true,
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.js' },
+      { code: 'es', iso: 'es-ES', file: 'es.js' }
+    ]
+  },
+
   styleResources: {
     scss: [
       '~assets/colors.scss',

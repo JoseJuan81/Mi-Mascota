@@ -1,10 +1,24 @@
 <template>
-    <div class="info-card-container flex items-center justify-start">
-        <div class="icon flex items-center justify-center">
+    <div
+        class="info-card-container flex items-center justify-start">
+        <div
+            :class="[
+                'icon flex items-center justify-center',
+                { 'no-content-icon': !content },
+            ]">
             <slot name="icon"></slot>
         </div>
-        <h3 class="title">{{title}}:</h3>
-        <span class="content">{{content}}</span>
+        <h3
+            :class="[
+                'title',
+                { 'no-content-title': !content },
+            ]">{{title}}:</h3>
+        <span class="content" v-if="content">{{content}}</span>
+        <span
+            :class="[
+                'content',
+                { 'no-content': !content },
+            ]" v-else>(O.O)</span>
     </div>
 </template>
 <script>
@@ -30,7 +44,7 @@ export default {
     height: 3.5rem;
     margin: 1rem auto;
     transition: all 100ms ease-in;
-    width: 18rem;
+    width: 20rem;
 
     &.info-card-container:hover {
         box-shadow: 0 10px 30px -5px rgba(0,64,128,.2);
@@ -48,12 +62,20 @@ export default {
             padding: 0 0.8rem;
             width: 100%;
         }
+
+        &.no-content-icon {
+            background-color: $disabled;
+        }
     }
 
     .title {
         color: $textSecondary;
         font-size: 1rem;
         margin: 0 0.75rem;
+
+        &.no-content-title {
+            color: $disabled;
+        }
     }
 
     .content {
@@ -61,6 +83,10 @@ export default {
         font-size: 1.5rem;
         font-weight: bold;
         margin-right: 1rem;
+
+        &.no-content {
+            color: $disabled;
+        }
     }
 }
 </style>
