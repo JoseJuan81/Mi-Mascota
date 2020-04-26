@@ -6,7 +6,7 @@
                 @click="show = true"
             >Menu</button>
         </div>
-        <no-ssr placeholder="Cargando...">
+        <client-only placeholder="Cargando...">
             <user-profile-layout
                 :break-point="600"
                 :show="show"
@@ -23,7 +23,7 @@
                     </div>
                 </template>
             </user-profile-layout>
-        </no-ssr>
+        </client-only>
     </div>
 </template>
 <script>
@@ -32,12 +32,12 @@ import baseMenu from '~/components/BaseMenu.vue';
 function data() {
     return {
         menuItems: [
-            { title: 'Resumen', route: '/resumen' },
-            { title: 'Mis Vacunas', route: '/mis-vacunas' },
-            { title: 'Mi Historial', route: '/mi-historia' },
-            { title: 'Mis Medicinas', route: '/mis-medicinas' },
-            { title: 'Mis Accesorios', route: '/mis-accesorios' },
-            { title: 'Mis Consultas', route: '/mis-consultas' },
+            { title: this.$t('summary'), route: '/resumen' },
+            { title: this.$t('vaccines'), route: '/mis-vacunas' },
+            { title: this.$t('record'), route: '/mi-historia' },
+            { title: this.$t('treatment'), route: '/mis-medicinas' },
+            { title: this.$t('ecommerce'), route: '/mis-accesorios' },
+            { title: this.$t('appointments'), route: '/mis-consultas' },
         ],
         show: false,
     };
@@ -62,7 +62,7 @@ export default {
 
 .main-content-container {
     border-left: 1px solid $primary;
-    height: 100vh;
+    height: auto;
     padding: 0 20px;
 
     @media (max-width: 600px) {

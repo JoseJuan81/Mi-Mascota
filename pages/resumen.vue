@@ -5,43 +5,47 @@
             <weight-graphics :d3="d3" :weight-data="weightData"/>
         </div>
         <div class="grid-info">
-            <info-card title="Mi Nombre" content="Catire">
+            <info-card :title="$t('petName')" content="Catire">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/id-card-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Último peso" :content="`${lastWeight} Kg`">
+            <info-card :title="$t('lastWeight')" :content="`${lastWeight} Kg`">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/weight-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Soy" content="Macho">
+            <info-card :title="$t('gender')" content="Macho">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/venus-mars-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Tengo" content="5 años">
+            <info-card :title="$t('age')" content="5 años">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/birthday-cake-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Especie" content="Canino">
+            <info-card :title="$t('specie')" content="Canino">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/paw-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Raza" content="Catumpi">
+            <info-card :title="$t('breed')" content="Catumpi">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/dog-solid.svg" alt="ícono">
                 </template>
             </info-card>
-            <info-card title="Color" content="Catire">
+            <info-card :title="$t('color')" content="Catire">
                 <template v-slot:icon>
                     <img src="~/static/icons/pets/palette-solid.svg" alt="ícono">
                 </template>
             </info-card>
+            <info-card :title="$t('condition')" content="">
+                <template v-slot:icon>
+                    <img src="~/static/icons/pets/heartbeat-solid.svg" alt="ícono">
+                </template>
+            </info-card>
         </div>
-        <h3 class="summary-data-title">Mi condición: <span class="summary-data-content">Castrado / Esterilizado </span></h3>
     </div>
 </template>
 <script>
@@ -80,6 +84,12 @@ function data() {
     return {
         d3: null,
         weightData: [
+            { date: '2019-05-16', weight: 28 },
+            { date: '2019-06-12', weight: 30 },
+            { date: '2020-07-15', weight: 24 },
+            { date: '2020-08-09', weight: 27 },
+            { date: '2020-09-20', weight: 25 },
+            { date: '2020-10-18', weight: 29 },
             { date: '2019-11-16', weight: 28 },
             { date: '2019-12-12', weight: 30 },
             { date: '2020-01-15', weight: 24 },
