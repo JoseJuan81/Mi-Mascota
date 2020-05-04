@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="nav flex space-between items-center">
-            <h1>MascotApp</h1>
+            <h1 class="logo-app">MascotApp</h1>
             <div>
                 <router-link :to="switchLocalePath('en')">EN</router-link>
                 <router-link :to="switchLocalePath('es')">ES</router-link>
@@ -63,6 +63,11 @@ export default {
     border-bottom: 0.1rem solid $primary;
     height: $navHeight;
     padding: 0.5rem 3rem;
+
+    .logo-app {
+        color: $primary;
+        font-size: 2.2rem;
+    }
 }
 
 .activator {

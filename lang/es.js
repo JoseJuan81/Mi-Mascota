@@ -12,5 +12,6 @@ export default {
   specie: 'Especie',
   summary: 'Resumen',
   treatment: 'My Treatments',
-  vaccines: 'Mis Vacunas'
+  vaccines: 'Mis Vacunas',
+  weightSummary: 'Resumen de pesos'
 }

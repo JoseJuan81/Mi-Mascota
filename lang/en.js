@@ -12,5 +12,6 @@ export default {
   specie: 'Specie',
   summary: 'Summary',
   treatment: 'My Treatments',
-  vaccines: 'My Vaccines'
+  vaccines: 'My Vaccines',
+  weightSummary: 'Weight Summary'
 }

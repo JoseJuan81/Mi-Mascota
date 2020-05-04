@@ -71,6 +71,7 @@ export default {
             color:$primary;
             cursor: pointer;
             display: flex;
+            font-size: 1.5rem;
             font-weight: bold;
             height: 42px;
             justify-content: flex-start;
@@ -78,7 +79,7 @@ export default {
             transition: all 80ms ease-in;
             white-space: nowrap;
 
-            &.nuxt-link-exact-active {
+            &.nuxt-link-active {
                 background-color: $primary;
                 color: white;
             }
