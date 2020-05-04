@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .routes-container {
     background-color: white;
-    height: 100vh;
+    height: calc(100vh - 5rem);
 
     .return {
 

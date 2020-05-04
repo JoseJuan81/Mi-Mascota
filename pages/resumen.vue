@@ -136,13 +136,13 @@ export default {
 .graphics-title {
     color: $textPrimary;
     font-size: 1rem;
-    margin-top: 1rem;
+    padding-top: 1rem;
     text-align: center;
 }
 .grid-info {
     display: grid;
-    grid-column-gap: 0.7rem;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 .summary-data-title,
 .summary-data-content {

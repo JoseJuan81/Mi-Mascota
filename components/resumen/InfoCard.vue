@@ -40,14 +40,14 @@ export default {
 .info-card-container {
     border-top-left-radius: 2.75rem;
     border-bottom-left-radius: 2.75rem;
-    box-shadow: 0 10px 30px -15px rgba(0,64,128,.2);
-    height: 3.5rem;
+    box-shadow: 0 0.1rem 3rem -1.5rem rgba(0,64,128,.2);
+    height: 4.5rem;
     margin: 1rem auto;
     transition: all 100ms ease-in;
     width: 20rem;
 
     &.info-card-container:hover {
-        box-shadow: 0 10px 30px -5px rgba(0,64,128,.2);
+        box-shadow: 0 1rem 1rem 3rem -0.5rem rgba(0,64,128,.2);
         transform: translateX(2px);
     }
 
@@ -70,7 +70,7 @@ export default {
 
     .title {
         color: $textSecondary;
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin: 0 0.75rem;
 
         &.no-content-title {
@@ -80,7 +80,7 @@ export default {
 
     .content {
         color: $primary;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         margin-right: 1rem;
 
