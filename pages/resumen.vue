@@ -142,7 +142,7 @@ export default {
 .grid-info {
     display: grid;
     grid-column-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 }
 .summary-data-title,
 .summary-data-content {

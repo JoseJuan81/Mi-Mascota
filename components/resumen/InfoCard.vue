@@ -44,7 +44,7 @@ export default {
     height: 4.5rem;
     margin: 1rem auto;
     transition: all 100ms ease-in;
-    width: 20rem;
+    width: 21rem;
 
     &.info-card-container:hover {
         box-shadow: 0 1rem 1rem 3rem -0.5rem rgba(0,64,128,.2);
