@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="graphics-title">Resumen de peso</h2>
+        <h2 class="graphics-title">{{$t('weightSummary')}}</h2>
         <div v-if="!!d3" class="mb-8 flex justify-center">
             <weight-graphics :d3="d3" :weight-data="weightData"/>
         </div>
@@ -142,7 +142,7 @@ export default {
 .grid-info {
     display: grid;
     grid-column-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 }
 .summary-data-title,
 .summary-data-content {
