@@ -11,6 +11,6 @@ export default {
   record: 'My Record',
   specie: 'Specie',
   summary: 'Summary',
-  treatment: 'Mis Tratamientos',
+  treatment: 'My Treatments',
   vaccines: 'My Vaccines'
 }

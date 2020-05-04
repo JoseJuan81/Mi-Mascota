@@ -1,5 +1,12 @@
 <template>
     <div>
+        <nav class="nav flex space-between items-center">
+            <h1>MascotApp</h1>
+            <div>
+                <router-link :to="switchLocalePath('en')">EN</router-link>
+                <router-link :to="switchLocalePath('es')">ES</router-link>
+            </div>
+        </nav>
         <div class="activator">
             <button
                 type="button"
@@ -32,12 +39,12 @@ import baseMenu from '~/components/BaseMenu.vue';
 function data() {
     return {
         menuItems: [
-            { title: this.$t('summary'), route: '/resumen' },
-            { title: this.$t('vaccines'), route: '/mis-vacunas' },
-            { title: this.$t('record'), route: '/mi-historia' },
-            { title: this.$t('treatment'), route: '/mis-medicinas' },
-            { title: this.$t('ecommerce'), route: '/mis-accesorios' },
-            { title: this.$t('appointments'), route: '/mis-consultas' },
+            { title: this.$t('summary'), route: this.localePath('resumen') },
+            { title: this.$t('vaccines'), route: this.localePath('mis-vacunas') },
+            { title: this.$t('record'), route: this.localePath('mi-historia') },
+            { title: this.$t('treatment'), route: this.localePath('mis-medicinas') },
+            { title: this.$t('ecommerce'), route: this.localePath('mis-accesorios') },
+            { title: this.$t('appointments'), route: this.localePath('mis-consultas') },
         ],
         show: false,
     };
@@ -52,6 +59,12 @@ export default {
 };
 </script>
 <style lang="scss">
+.nav {
+    border-bottom: 0.1rem solid $primary;
+    height: $navHeight;
+    padding: 0.5rem 3rem;
+}
+
 .activator {
     display: block;
 
@@ -61,12 +74,12 @@ export default {
 }
 
 .main-content-container {
-    border-left: 1px solid $primary;
-    height: auto;
-    padding: 0 20px;
+    border-left: 0.1rem solid $primary;
+    height: calc(100vh - 5rem);
+    padding: 0 2rem;
 
     @media (max-width: 600px) {
-        border-left: 0px solid $primary;
+        border-left: 0rem solid $primary;
     }
 }
 </style>

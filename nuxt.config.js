@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   mode: 'universal',
@@ -26,6 +27,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~css/globalVariables.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -49,7 +51,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    ['@nuxtjs/dotenv', { filname: '.env' }],
     '@nuxtjs/style-resources',
     'nuxt-i18n'
   ],
@@ -59,7 +61,7 @@ export default {
     defaultLocale: 'en',
     langDir: 'lang/',
     lazy: true,
-    locales: [
+    locales: [ // solo funciona locales como array de objetos cuando lazy: true;
       { code: 'en', iso: 'en-US', file: 'en.js' },
       { code: 'es', iso: 'es-ES', file: 'es.js' }
     ]
@@ -68,7 +70,8 @@ export default {
   styleResources: {
     scss: [
       '~assets/colors.scss',
-      '~assets/commonStyles.scss'
+      '~assets/commonStyles.scss',
+      '~assets/variables.scss'
     ]
   },
   /*
@@ -86,5 +89,9 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  server: {
+    port: process.env.PORT,
+    host: '0.0.0.0'
   }
 }
