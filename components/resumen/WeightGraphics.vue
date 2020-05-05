@@ -1,7 +1,5 @@
 <template>
-    <div class="w-full">
-        <svg ref="wg"></svg>
-    </div>
+    <div ref="wg" class="w-full"></div>
 </template>
 
 <script>
@@ -53,7 +51,8 @@ function setBars() {
 }
 
 function setSvgObject() {
-    this.svg = this.d3.select('svg')
+    this.svg = this.d3.select(this.$refs.wg)
+        .append('svg')
         .attr('viewBox', `0 0 ${width} ${height}`);
 }
 
