@@ -40,15 +40,15 @@ export default {
 .info-card-container {
     border-top-left-radius: 2.75rem;
     border-bottom-left-radius: 2.75rem;
-    box-shadow: 0 0.1rem 3rem -1.5rem rgba(0,64,128,.2);
-    height: 4.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 5.5rem;
     margin: 1rem auto;
     transition: all 100ms ease-in;
     width: 21rem;
 
-    &.info-card-container:hover {
-        box-shadow: 0 1rem 1rem 3rem -0.5rem rgba(0,64,128,.2);
-        transform: translateX(2px);
+    &:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateX(0.2rem) scale(1.05);
     }
 
     .icon {
@@ -59,7 +59,7 @@ export default {
         width: 3rem;
 
         img {
-            padding: 0 0.8rem;
+            padding: 0 0.6rem;
             width: 100%;
         }
 
