@@ -56,6 +56,16 @@ export default {
         baseMenu,
     },
     data,
+    head() {
+        return {
+            script: [
+                { src: 'https://d3js.org/d3.v4.min.js' },
+                { src: 'https://d3js.org/d3-color.v1.min.js' },
+                { src: 'https://d3js.org/d3-interpolate.v1.min.js' },
+                { src: 'https://d3js.org/d3-scale-chromatic.v1.min.js' },
+            ],
+        };
+    },
 };
 </script>
 <style lang="scss">

@@ -54,7 +54,6 @@ import InfoCard from '~/components/resumen/InfoCard';
 
 function mounted() {
     this.d3 = window.d3;
-    const self = this;
     if (!this.d3) {
         window.addEventListener('load', this.mountingD3);
     } else {
@@ -113,12 +112,6 @@ export default {
     head () {
         return {
             title: 'Resumen',
-            script: [
-                { src: 'https://d3js.org/d3.v4.min.js' },
-                { src: 'https://d3js.org/d3-color.v1.min.js' },
-                { src: 'https://d3js.org/d3-interpolate.v1.min.js' },
-                { src: 'https://d3js.org/d3-scale-chromatic.v1.min.js' },
-            ],
         }
     },
     layout: 'mainLayout',
