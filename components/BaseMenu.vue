@@ -1,96 +1,81 @@
 <template>
-    <div class="routes-container">
-        <button
-            class="return"
-            type="button"
-            @click="$emit('click')"
-        >Regresar</button>
-        <div class="pet-img">
-            <img src="~/static/icons/pets/dog.svg" alt="pet-img">
-            <small>Catire</small>
-            <small>ID: 1a2b3c</small>
-        </div>
-        <ul class="routes">
-            <nuxt-link
-                v-for="(item, index) in menuItems"
-                :key="index"
-                :to="item.route"
-                tag="li"
-            >{{item.title}}</nuxt-link>
-        </ul>
+  <div class="routes-container">
+    <button
+      class="return"
+      type="button"
+      @click="$emit('click')"
+    >Regresar</button>
+    <div class="pet-img">
+      <img src="~/static/icons/pets/dog.svg" alt="pet-img">
+      <small>Catire</small>
+      <small>ID: 1a2b3c</small>
     </div>
+    <ul class="routes">
+      <nuxt-link
+          v-for="(item, index) in menuItems"
+          :key="index"
+          :to="item.route"
+          tag="li"
+      >{{item.title}}</nuxt-link>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
-    name: 'base-menu',
-    props: {
-        menuItems: {
-            required: true,
-            type: Array,
-        },
+  name: 'baseMenu',
+  props: {
+    menuItems: {
+      required: true,
+      type: Array,
     },
+  },
 };
 </script>
 <style lang="scss" scoped>
 .routes-container {
-    background-color: white;
-    height: calc(100vh - 5rem);
+  background-color: white;
+  height: calc(100vh - 5rem);
 
-    .return {
+  .return {
 
-        @media (min-width: 600px) {
-            display: none;
-        }
+    @media (min-width: 600px) {
+        @apply hidden;
     }
+  }
 
-    .pet-img {
-        align-items: center;
-        border-bottom: 1px solid $primary;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 30px;
-        padding-bottom: 20px;
+  .pet-img {
+    @apply flex items-center justify-center flex-col;
+    @apply border-b border-solid border-$primary pt-6 pb-8;
 
-        img {
-            height: 85px;
+    img {
+      height: 85px;
 
-            @media (min-width: 600px) {
-                height: 145px;
-            }
-        }
+      @media (min-width: 600px) {
+        height: 145px;
+      }
     }
+  }
 
-    .routes {
-        list-style: none;
-        padding: 0px;
+  .routes {
+    @apply p-0;
+    list-style: none;
 
-        li {
-            align-items: center;
-            border-bottom: 1px solid $primary;
-            color:$primary;
-            cursor: pointer;
-            display: flex;
-            font-size: 1.5rem;
-            font-weight: bold;
-            height: 42px;
-            justify-content: flex-start;
-            padding: 0 20px;
-            transition: all 80ms ease-in;
-            white-space: nowrap;
+    li {
+      @apply flex items-center justify-start py-0 px-8;
+      @apply text-$primary font-bold text-2xl whitespace-no-wrap;
+      @apply border-b border-solid border-$primary;
+      @apply cursor-pointer;
+      height: 42px;
+      transition: all 80ms ease-in;
 
-            &.nuxt-link-active {
-                background-color: $primary;
-                color: white;
-            }
+      &.nuxt-link-active {
+        @apply bg-$primary text-white;
+      }
 
-            &:hover {
-                background-color: $primary;
-                color: white;
-                background-color: $primary;
-                color: white;
-            }
-        }
+      &:hover {
+        @apply bg-$primary text-white;
+      }
     }
+  }
 }
 </style>
