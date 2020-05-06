@@ -5,7 +5,8 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: "module"
   },
   extends: [
     '@nuxtjs',
@@ -13,5 +14,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'semi': 'off',
+    'comma-dangle': 'off'
   }
 }

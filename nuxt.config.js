@@ -40,7 +40,6 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources'
   ],
   /*
@@ -53,7 +52,9 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filname: '.env' }],
     '@nuxtjs/style-resources',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/eslint-module'
   ],
 
   // translations
