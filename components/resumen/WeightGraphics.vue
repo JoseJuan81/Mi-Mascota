@@ -18,14 +18,14 @@ function mounted () {
 function setAxisLeft () {
   this.yAxis = this.d3.axisLeft().scale(this.yScale);
   this.svg.append('g')
-    .attr('transform', 'translate(' + [margin.left, 0] + ')')
+    .attr('transform', 'translate(' + [margin.left + margin.top, 0] + ')')
     .call(this.yAxis);
 }
 
 function setAxisBottom () {
   this.xAxis = this.d3.axisBottom().scale(this.xScale);
   this.svg.append('g')
-    .attr('transform', 'translate(' + [0, height - margin.bottom] + ')')
+    .attr('transform', 'translate(' + [margin.top, height - margin.bottom] + ')')
     .call(this.xAxis);
 }
 
@@ -36,7 +36,8 @@ function setLine () {
     .attr('d', line(this.weightData))
     .attr('fill', 'none')
     .attr('stroke', 'steelblue')
-    .attr('stroke-width', '2');
+    .attr('stroke-width', '2')
+    .attr('transform', 'translate(' + [margin.top, 0] + ')');
 }
 
 function setCircles () {
@@ -47,8 +48,9 @@ function setCircles () {
     .enter().append('circle')
     .attr('cx', d => this.xScale(d.date))
     .attr('cy', d => this.yScale(d.weight))
-    .attr('r', 3)
-    .attr('fill', 'steelblue');
+    .attr('r', 4)
+    .attr('fill', 'steelblue')
+    .attr('transform', 'translate(' + [margin.top, 0] + ')');
 }
 
 function setSvgObject () {
@@ -59,7 +61,7 @@ function setSvgObject () {
 
 function setScales () {
   this.yScale = this.d3.scaleLinear()
-    .domain([0, this.d3.max(this.weightData, d => d.weight)])
+    .domain([this.d3.min(this.weightData, d => d.weight) * 0.95, this.d3.max(this.weightData, d => d.weight) * 1.05])
     .range([height - margin.bottom, margin.top]);
   this.xScale = this.d3.scaleUtc()
     .domain(this.d3.extent(this.weightData, d => d.date))
