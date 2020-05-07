@@ -1,0 +1,12 @@
+{
+    "name": "MiMascotaApp",
+    "scripts": {
+        "pr-predestroy": "bin/teardown"
+    },
+    "env": {
+        "PORT": {
+            "description": "Puerto del servidor local",
+            "value": 2104
+        }
+    }
+}
