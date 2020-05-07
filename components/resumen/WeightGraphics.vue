@@ -7,16 +7,12 @@ const height = 200;
 const margin = { top: 10, right: 20, bottom: 20, left: 20 };
 
 function mounted () {
-  this.setBarHeight();
   this.setScales();
   this.setSvgObject();
-  this.setBars();
+  this.setLine();
+  this.setCircles();
   this.setAxisBottom();
   this.setAxisLeft();
-}
-
-function setBarHeight () {
-  this.widthBar = 15;
 }
 
 function setAxisLeft () {
@@ -33,19 +29,26 @@ function setAxisBottom () {
     .call(this.xAxis);
 }
 
-function setBars () {
-  this.bars = this.svg.append('g')
-    .selectAll('rect')
+function setLine () {
+  const line = this.d3.line().x(d => this.xScale(d.date)).y(d => this.yScale(d.weight));
+  const g = this.svg.append('g');
+  this.line = g.append('path')
+    .attr('d', line(this.weightData))
+    .attr('fill', 'none')
+    .attr('stroke', 'steelblue')
+    .attr('stroke-width', '2');
+}
+
+function setCircles () {
+  this.circles = this.svg
+    .append('g')
+    .selectAll('circle')
     .data(this.weightData)
-    .enter().append('rect')
-    .attr('height', d => height - this.yScale(d.weight) - margin.bottom)
-    .attr('width', this.xScale.bandwidth())
-    .attr('fill', (d, i) => this.d3.schemeDark2[i])
-    .attr('stroke', 'white')
-    .attr('stroke-width', 2)
-    .attr('opacity', 1)
-    .attr('y', d => this.yScale(d.weight))
-    .attr('x', d => this.xScale(d.date));
+    .enter().append('circle')
+    .attr('cx', d => this.xScale(d.date))
+    .attr('cy', d => this.yScale(d.weight))
+    .attr('r', 3)
+    .attr('fill', 'steelblue');
 }
 
 function setSvgObject () {
@@ -58,14 +61,15 @@ function setScales () {
   this.yScale = this.d3.scaleLinear()
     .domain([0, this.d3.max(this.weightData, d => d.weight)])
     .range([height - margin.bottom, margin.top]);
-  this.xScale = this.d3.scaleBand()
-    .domain(this.weightData.map(d => d.date))
+  this.xScale = this.d3.scaleUtc()
+    .domain(this.d3.extent(this.weightData, d => d.date))
     .range([margin.left, width - margin.right]);
 }
 
 function data () {
   return {
-    bars: null,
+    circles: null,
+    line: null,
     widthBar: 0,
     svg: null,
     xAxis: null,
@@ -81,8 +85,8 @@ export default {
   methods: {
     setAxisLeft,
     setAxisBottom,
-    setBars,
-    setBarHeight,
+    setCircles,
+    setLine,
     setScales,
     setSvgObject,
   },
