@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="graphics-title">{{$t('weightSummary')}}</h2>
+    <h2 class="graphics-title">{{ $t('weightSummary') }}</h2>
     <div v-if="!!d3" class="mb-8 flex justify-center">
       <weight-graphics :d3="d3" :weight-data="weightData"/>
     </div>
@@ -67,10 +67,9 @@ function mountingD3 () {
 }
 
 function formatDates () {
-  const formatTime = this.d3.timeFormat('%b %d, %Y');
   this.weightData = this.weightData.map((d) => {
     const newD = d;
-    newD.date = formatTime(new Date(d.date));
+    newD.date = new Date(d.date);
     return newD;
   });
 }
@@ -85,16 +84,16 @@ function data () {
     weightData: [
       { date: '2019-05-16', weight: 28 },
       { date: '2019-06-12', weight: 30 },
-      { date: '2020-07-15', weight: 24 },
-      { date: '2020-08-09', weight: 27 },
-      { date: '2020-09-20', weight: 25 },
-      { date: '2020-10-18', weight: 29 },
       { date: '2019-11-16', weight: 28 },
       { date: '2019-12-12', weight: 30 },
       { date: '2020-01-15', weight: 24 },
       { date: '2020-02-09', weight: 27 },
       { date: '2020-03-20', weight: 25 },
-      { date: '2020-04-18', weight: 29 }
+      { date: '2020-04-18', weight: 29 },
+      { date: '2020-07-15', weight: 24 },
+      { date: '2020-08-09', weight: 27 },
+      { date: '2020-09-20', weight: 25 },
+      { date: '2020-10-18', weight: 29 }
     ]
   };
 }
