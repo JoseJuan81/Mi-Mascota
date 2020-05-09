@@ -12,6 +12,17 @@ export default {
   specie: 'Especie',
   summary: 'Resumen',
   treatment: 'Mis Tratamientos',
-  vaccines: 'Mis Vacunas',
+  vaccines: {
+    col: {
+      applyDate: 'Vacunación',
+      batch: 'Lote',
+      expiration: 'Expiración',
+      name: 'Nombre',
+      nextVaccine: 'Próxima Vacuna',
+      type: 'Tipo'
+    },
+    tableTile: 'Lista de vacunas de mi mascota',
+    title: 'Mis Vacunas'
+  },
   weightSummary: 'Resumen de pesos'
 }

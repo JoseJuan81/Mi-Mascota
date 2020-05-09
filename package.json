@@ -27,6 +27,7 @@
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "node-sass": "^4.13.1",
+    "responsive-table-dl": "^1.0.12",
     "sass-loader": "^8.0.2",
     "user-profile-layout": "^0.1.10"
   }

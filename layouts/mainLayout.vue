@@ -7,40 +7,46 @@
           <router-link :to="switchLocalePath('es')">ES</router-link>
         </div>
     </nav>
-    <div class="activator">
-      <button
-        type="button"
-        @click="show = true"
-      >Menu</button>
-    </div>
     <client-only placeholder="Cargando...">
-      <user-profile-layout
-        :break-point="600"
-        :show="show"
-      >
-        <template v-slot:aside>
-          <base-menu :menu-items="menuItems" />
-        </template>
-        <template v-slot:menu-movil>
-          <base-menu :menu-items="menuItems" @click="show = false"/>
-        </template>
-        <template v-slot:main-content>
-          <div class="main-content-container">
-            <nuxt />
-          </div>
-        </template>
-      </user-profile-layout>
+      <div class="max-width">
+        <div class="activator">
+          <button
+            class="flex items-center justify-center w-12 h-12 ml-8 mt-4 focus:outline-none"
+            type="button"
+            @click="show = true"
+          >
+            <menu-icon class="menu h-full w-full" />
+          </button>
+        </div>
+        <user-profile-layout
+          :break-point="700"
+          :show="show"
+        >
+          <template v-slot:aside>
+            <base-menu :menu-items="menuItems" />
+          </template>
+          <template v-slot:menu-movil>
+            <base-menu :menu-items="menuItems" @click="show = false"/>
+          </template>
+          <template v-slot:main-content>
+            <div class="main-content-container">
+              <nuxt />
+            </div>
+          </template>
+        </user-profile-layout>
+      </div>
     </client-only>
   </div>
 </template>
 <script>
 import baseMenu from '~/components/BaseMenu.vue';
+import menuIcon from '~/components/shared/icons/menuIcon.vue';
 
 function data () {
   return {
     menuItems: [
       { title: this.$t('summary'), route: this.localePath('resumen') },
-      { title: this.$t('vaccines'), route: this.localePath('mis-vacunas') },
+      { title: this.$t('vaccines.title'), route: this.localePath('mis-vacunas') },
       { title: this.$t('record'), route: this.localePath('mi-historia') },
       { title: this.$t('treatment'), route: this.localePath('mis-medicinas') },
       { title: this.$t('ecommerce'), route: this.localePath('mis-accesorios') },
@@ -54,6 +60,7 @@ export default {
   name: 'mainLayout',
   components: {
     baseMenu,
+    menuIcon,
   },
   data,
   head () {
@@ -69,9 +76,16 @@ export default {
 };
 </script>
 <style lang="scss">
+.dl-aside-container {
+  flex-basis: 19% !important;
+}
+
+.max-width {
+  @apply max-w-mascotapp mx-auto;
+}
 .nav {
-  @apply border-b border-$primary border-solid py-2 px-12;
-  @apply flex items-center justify-between;
+  @apply max-w-mascotapp border-b border-$primary border-solid py-2 px-12;
+  @apply flex items-center justify-between mx-auto;
   height: $navHeight;
 
   .logo-app {
@@ -82,13 +96,16 @@ export default {
 .activator {
   @apply block;
 
-  @media (min-width: 599px) {
+  [data-color="menu"] {
+    @apply fill-$primary;
+  }
+
+  @media (min-width: 701px) {
     @apply hidden;
   }
 }
 
 .main-content-container {
-  @apply py-0 px-8 border-l border-$primary border-solid;
-  height: calc(100vh - 5rem);
+  @apply py-0 px-8;
 }
 </style>
