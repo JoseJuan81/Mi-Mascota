@@ -33,7 +33,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/UserProfileLayout.js', mode: 'client' }
+    { src: '~/plugins/UserProfileLayout.js', mode: 'client' },
+    { src: '~/plugins/ResponsiveTable.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

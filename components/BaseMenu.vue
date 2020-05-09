@@ -1,7 +1,7 @@
 <template>
   <div class="routes-container">
     <button
-      class="return"
+      class="return focus:outline-none"
       type="button"
       @click="$emit('click')"
     >Regresar</button>
@@ -33,12 +33,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .routes-container {
-  background-color: white;
+  @apply bg-white;
+  @apply border-$primary border-r border-solid;
   height: calc(100vh - 5rem);
+  height: 100vh;
+
+  @media (min-width: 701px) {
+    height: calc(100vh - 5rem);
+  }
 
   .return {
-
-    @media (min-width: 600px) {
+    @apply w-full h-16 text-white bg-$primary font-bold;
+    @media (min-width: 701px) {
         @apply hidden;
     }
   }
